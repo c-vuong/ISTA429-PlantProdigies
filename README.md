@@ -8,21 +8,25 @@ This repo contains Plant Prodigies submission for the MLCAS 2021 Crop Yield Pred
  - Amir Love
  - Christopher Vuong
 
-## For each file in the repository 
-cleandata.py -> This file has functions for changing the data to be use when training the model and output a graph of the model to help understand the actual yield and predicted yield<br><br>
-
+## Necessary files for running 
+data_handle.py -> This file organizes the training and test data into a format readily available for use in our training and test models.<br>
+<br>
+model_handle.py -> This file builds the Decision Tree model and returns the NumPy prediction array used for the competition submission.
+<br>
 ## Model 
-For our model we went with an LSTM which was originally used to predict stock prices, however, by updating the model we were able to make it predict yield data. 
+This model is based on a Decision Tree regressor, which is simple to understand and implement. The decision tree regressor model takes in two arrays, the training samples and the class labels (validation) for the training samples. After being fitted to the model, the prediction can be called just after. This model does not have any obvious parameters to change, other than the training bias used for the model. This can be changed by modifying the data_set column used for training (x) in the DecisionTree function (the default is AvgSur, or Average Surface Temperature.
 
-## To run
-To run the model all that is need is the cleandata.py in the same working directory as well as the data that can be found at link-> https://drive.google.com/file/d/1DoyextA0q4mxumMAhBvqZbfZriIM9A-Y/view
-and then run the cleandata.py file, the program was tested with python 3.9.7
+## Usage
+To reproduce the NumPy yield prediction, first run the data_handle.py file to compress and organize the training and test data used in the model. Then, by running the model_handle.py file, the NumPy yield prediction file is produced.
 
 ## Competition
 Competition link -> https://eval.ai/web/challenges/challenge-page/1251/overview
 
 ## Acknowledgements 
-Thank you to Team Data and Team X in ISTA 429! We gained a lot of knowledge by looking at your code. In addition, below is the website that we used to craft our LSTM model. Links:<br><br>
-Team Data - https://github.com/Shadoweyes75/MLCAS2021 <br><br>
-Team X - https://github.com/jake-newton/X429midterm<br><br>
-LSTM Model Used- https://www.kdnuggets.com/2018/11/keras-long-short-term-memory-lstm-model-predict-stock-prices.html<br><br>
+We would like to thank Team X in assisting our development in our LSTM model, as well as relying heavily on Team Data Dudes for their insight on Decision Trees regressor models.  In addition, below is the website that we used to craft our LSTM model and Decision Tree model.
+
+Links:</br>
+Team Data - https://github.com/Shadoweyes75/MLCAS2021<br>
+Team X - https://github.com/jake-newton/X429midterm<br>
+LSTM Model Used - https://www.kdnuggets.com/2018/11/keras-long-short-term-memory-lstm-model-predict-stock-prices.html<br>
+Decision Trees - https://scikit-learn.org/stable/modules/tree.html
